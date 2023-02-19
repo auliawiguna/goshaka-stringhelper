@@ -1,3 +1,5 @@
+Go string helpers inspered by Laravel's :)
+
 # Requirements
 - Go version 1.19
 
