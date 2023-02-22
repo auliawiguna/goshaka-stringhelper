@@ -6,7 +6,9 @@
 package goshakastringhelper
 
 import (
+	"fmt"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"golang.org/x/text/cases"
@@ -223,4 +225,103 @@ func Headline(str string) string {
 	str = strings.TrimSpace(str)
 
 	return str
+}
+
+// To determine if target is exists in str
+// @Param	str	string
+// @Param	target	string
+// @Return	bool
+func Contains(str, target string) bool {
+	return strings.Contains(str, target)
+}
+
+// To determine if target is exists in str
+// @Param	str	string
+// @Param	target	string
+// @Return	bool
+func ContainsAll(str string, target []string) bool {
+	foundWords := make([]string, 0)
+	for _, word := range target {
+		if strings.Contains(str, word) {
+			foundWords = append(foundWords, word)
+		}
+	}
+
+	return len(foundWords) == len(target)
+}
+
+// To determine if str is ends with target
+// @Param	str	string
+// @Param	target	string|array
+// @Return	bool
+func EndsWith(str string, target interface{}) bool {
+	switch v := target.(type) {
+	case string:
+		// Handle string parameter
+		return strings.HasSuffix(str, fmt.Sprintf("%v", target))
+	case []string:
+		// Handle string array parameter
+		foundWords := make([]string, 0)
+		for i := 0; i < len(v); i++ {
+			if strings.Contains(str, v[i]) {
+				foundWords = append(foundWords, v[i])
+			}
+		}
+		return len(foundWords) > 0
+	}
+
+	return false
+}
+
+// To adds a "add" to "str" if it does not already end with "add"
+// @Param	str	string
+// @Param	add	string
+// @Return	string
+func Finish(str, add string) string {
+	if EndsWith(str, add) {
+		return str
+	}
+	return str + add
+}
+
+// To checks if param is ascii
+// @Param	param	int|string
+// @Return	bool
+func IsASCII(param interface{}) bool {
+	switch v := param.(type) {
+	case int:
+		// Convert integer to string
+		s := strconv.Itoa(v)
+		// Convert string to byte slice
+		b := []byte(s)
+		// Check if each byte is ASCII
+		for i := 0; i < len(b); i++ {
+			if b[i] < 0 || b[i] > 127 {
+				return false
+			}
+		}
+		return true
+	case string:
+		// Convert string to byte slice
+		b := []byte(v)
+		// Check if each byte is ASCII
+		for i := 0; i < len(b); i++ {
+			if b[i] < 0 || b[i] > 127 {
+				return false
+			}
+		}
+		return true
+	default:
+		// Handle other types of parameters
+		return false
+	}
+}
+
+// To checks if s is match with pattern
+// @Param	s	string
+// @Param	pattern	string
+// @Return	bool
+func Is(s, pattern string) bool {
+	re := regexp.MustCompile(pattern)
+	return re.MatchString(s)
 }

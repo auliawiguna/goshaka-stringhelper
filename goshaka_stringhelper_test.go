@@ -14,7 +14,7 @@ func TestBeforeTextFound(t *testing.T) {
 	var b string = "is World"
 
 	if c := Before(a, b); c != "This " {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBeforeTextFound")
 	}
 }
 
@@ -23,7 +23,7 @@ func TestBeforeTextNotFound(t *testing.T) {
 	var b string = "is WorldX"
 
 	if c := Before(a, b); c != a {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBeforeTextNotFound")
 	}
 }
 
@@ -32,7 +32,7 @@ func TestBeforeLastTextFound(t *testing.T) {
 	var b string = "World of"
 
 	if c := BeforeLast(a, b); c != "This is World of Oz and World of Colony and the " {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBeforeLastTextFound")
 	}
 }
 
@@ -41,7 +41,7 @@ func TestBeforeLastTextNotFound(t *testing.T) {
 	var b string = "is WorldX"
 
 	if c := BeforeLast(a, b); c != a {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBeforeLastTextNotFound")
 	}
 }
 
@@ -50,7 +50,7 @@ func TestAfterTextFound(t *testing.T) {
 	var b string = "is World"
 
 	if c := After(a, b); c != " of Oz" {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestAfterTextFound")
 	}
 }
 
@@ -59,7 +59,7 @@ func TestAfterTextNotFound(t *testing.T) {
 	var b string = "is WorldX"
 
 	if c := After(a, b); c != a {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestAfterTextNotFound")
 	}
 }
 
@@ -68,7 +68,7 @@ func TestAfterLastTextFound(t *testing.T) {
 	var b string = "World of"
 
 	if c := AfterLast(a, b); c != " Irony" {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestAfterLastTextFound")
 	}
 }
 
@@ -77,7 +77,7 @@ func TestAfterLastTextNotFound(t *testing.T) {
 	var b string = "is WorldX"
 
 	if c := AfterLast(a, b); c != a {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestAfterLastTextNotFound")
 	}
 }
 
@@ -87,7 +87,7 @@ func TestBetweenTextFound(t *testing.T) {
 	var c string = "of"
 
 	if d := Between(a, b, c); d != " is World " {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBetweenTextFound")
 	}
 }
 
@@ -97,7 +97,7 @@ func TestBetweenTextNotFound(t *testing.T) {
 	var c string = "of"
 
 	if d := Between(a, b, c); d != a {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBetweenTextNotFound")
 	}
 }
 
@@ -107,7 +107,7 @@ func TestBetweenFirstTextFound(t *testing.T) {
 	var c string = "]"
 
 	if d := BetweenFirst(a, b, c); d != "a" {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBetweenFirstTextFound")
 	}
 }
 
@@ -117,7 +117,7 @@ func TestBetweenFirstTextNotFound(t *testing.T) {
 	var c string = "]"
 
 	if d := BetweenFirst(a, b, c); d != a {
-		t.Errorf("Add(%s, %s) = %s, didn't return %s", a, b, " of Oz", c)
+		t.Errorf("Error TestBetweenFirstTextNotFound")
 	}
 }
 
@@ -127,7 +127,7 @@ func TestCamel(t *testing.T) {
 	var c string = Camel("i_feel_good")
 
 	if a != b && b != c && c != "iFeelGood" {
-		t.Errorf("Camel Case Error")
+		t.Errorf("Error TestCamel")
 	}
 }
 
@@ -137,7 +137,7 @@ func TestPascal(t *testing.T) {
 	var c string = Camel("i_feel_good")
 
 	if a != b && b != c && c != "IFeelGood" {
-		t.Errorf("Pascal Case Error")
+		t.Errorf("Error TestPascal")
 	}
 }
 
@@ -149,7 +149,7 @@ func TestSnake(t *testing.T) {
 	var e string = Camel("This_Is-Title")
 
 	if a != b && b != c && c != d && d != e && e != "this_is_title" {
-		t.Errorf("Snake Case Error")
+		t.Errorf("Error TestSnake")
 	}
 }
 
@@ -161,7 +161,7 @@ func TestKebab(t *testing.T) {
 	var e string = Camel("This_Is-Title")
 
 	if a != b && b != c && c != d && d != e && e != "this-is-title" {
-		t.Errorf("Kebab Case Error")
+		t.Errorf("Error TestKebab")
 	}
 }
 
@@ -173,6 +173,148 @@ func TestHeadline(t *testing.T) {
 	var e string = Camel("This_Is-Title")
 
 	if a != b && b != c && c != d && d != e && e != "This Is Title" {
-		t.Errorf("Headline Case Error")
+		t.Errorf("Error TestHeadline")
+	}
+}
+
+func TestContainsSuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b string = "Is"
+	var c bool = Contains(a, b)
+	if !c {
+		t.Errorf("Contains Error")
+	}
+}
+
+func TestDoesNotContainsSuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b string = "Isx"
+	var c bool = Contains(a, b)
+	if c {
+		t.Errorf("TestDoesNotContainsSuccess Error")
+	}
+}
+
+func TestContainsAllSuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b []string = []string{"This", "Is", "Title"}
+	var c bool = ContainsAll(a, b)
+	if !c {
+		t.Errorf("TestContainsAllSuccess Error")
+	}
+}
+
+func TestDoesNotContainsAllSuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b []string = []string{"This", "Are", "Title"}
+	var c bool = ContainsAll(a, b)
+	if c {
+		t.Errorf("TestDoesNotContainsAllSuccess Error")
+	}
+}
+
+func TestEndsWithUsingStringSuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b []string = []string{"Are", "Title"}
+	var c bool = EndsWith(a, b)
+	if !c {
+		t.Errorf("TestEndsWithUsingStringSuccess Error")
+	}
+}
+
+func TestEndsWithUsingStringFail(t *testing.T) {
+	var a string = "This Is Title"
+	var b string = "Not"
+	var c bool = EndsWith(a, b)
+	if c {
+		t.Errorf("TestEndsWithUsingStringFail Error")
+	}
+}
+
+func TestEndsWithUsingArraySuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b []string = []string{"Are", "Title"}
+	var c bool = EndsWith(a, b)
+	if !c {
+		t.Errorf("TestEndsWithUsingArraySuccess Error")
+	}
+}
+
+func TestEndsWithUsingArrayFail(t *testing.T) {
+	var a string = "This Is Title"
+	var b []string = []string{"Are", "That"}
+	var c bool = EndsWith(a, b)
+	if c {
+		t.Errorf("TestEndsWithUsingArrayFail Error")
+	}
+}
+
+func TestFinishUsingExistingWordSuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b string = "Title"
+	var c string = Finish(a, b)
+	if c != a {
+		t.Errorf("TestFinishUsingExistingWordSuccess Error")
+	}
+}
+
+func TestFinishUsingNonExistingWordSuccess(t *testing.T) {
+	var a string = "This Is Title"
+	var b string = " and Word"
+	var c string = Finish(a, b)
+	if c != a+b {
+		t.Errorf("TestFinishUsingExistingWordSuccess Error")
+	}
+}
+
+func TestIsAsciiUsingAscii(t *testing.T) {
+	var a string = "U"
+	var c bool = IsASCII(a)
+	if !c {
+		t.Errorf("TestIsAsciiUsingAscii Error")
+	}
+}
+
+func TestIsAsciiUsingNonAscii(t *testing.T) {
+	var a string = "ü"
+	var c bool = IsASCII(a)
+	if c {
+		t.Errorf("TestIsAsciiUsingNonAscii Error")
+	}
+}
+
+func TestIsUsingMatchwordSuccess(t *testing.T) {
+	var a string = "Prambanan"
+	var b string = "Prambanan"
+	var c bool = Is(a, b)
+	if !c {
+		t.Errorf("TestIsUsingMatchwordSuccess Error")
+	}
+}
+
+func TestIsUsingWildcardSuccess(t *testing.T) {
+	var a string = "Prambanan"
+	var b string = "Pram*"
+	var c bool = Is(a, b)
+	if !c {
+		t.Errorf("TestIsUsingWildcardSuccess Error")
+	}
+}
+
+func TestIsUsingMatchwordFail(t *testing.T) {
+	var a string = "Prambanan"
+	var b string = "Prambananx"
+	var c bool = Is(a, b)
+	if c {
+		t.Errorf("TestIsUsingMatchwordFail Error")
+	}
+}
+
+func TestIsUsingWildcardFail(t *testing.T) {
+	var a string = "Prambanan"
+	var b string = "Boro*"
+	var c bool = Is(a, b)
+	if c {
+		t.Errorf("TestIsUsingWildcardFail Error")
 	}
 }
