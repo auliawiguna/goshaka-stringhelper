@@ -287,7 +287,7 @@ func Finish(str, add string) string {
 // To checks if param is ascii
 // @Param	param	int|string
 // @Return	bool
-func IsASCII(param interface{}) bool {
+func IsAscii(param interface{}) bool {
 	switch v := param.(type) {
 	case int:
 		// Convert integer to string
@@ -324,4 +324,43 @@ func IsASCII(param interface{}) bool {
 func Is(s, pattern string) bool {
 	re := regexp.MustCompile(pattern)
 	return re.MatchString(s)
+}
+
+// To trim spaces
+// @Param	str	string
+// @Param	target	string|array
+// @Return	bool
+func Trim(target interface{}) interface{} {
+	switch v := target.(type) {
+	case string:
+		// Handle string parameter
+		return strings.TrimSpace(fmt.Sprintf("%v", target))
+	case []string:
+		// Handle string array parameter
+		foundWords := make([]string, 0)
+		for i := 0; i < len(v); i++ {
+			foundWords = append(foundWords, strings.TrimSpace(fmt.Sprintf("%v", v[i])))
+		}
+		return foundWords
+	}
+
+	return false
+}
+
+// To check whether the given target is empty or not
+// @Param	str	string
+// @Param	target	string|array
+// @Return	bool
+func IsEmpty(target string) bool {
+	t := Trim(target)
+	return t == ""
+}
+
+// To check whether the given target is empty or not
+// @Param	str	string
+// @Param	target	string|array
+// @Return	bool
+func IsNotEmpty(target string) bool {
+	t := Trim(target)
+	return t != ""
 }

@@ -269,7 +269,7 @@ func TestFinishUsingNonExistingWordSuccess(t *testing.T) {
 
 func TestIsAsciiUsingAscii(t *testing.T) {
 	var a string = "U"
-	var c bool = IsASCII(a)
+	var c bool = IsAscii(a)
 	if !c {
 		t.Errorf("TestIsAsciiUsingAscii Error")
 	}
@@ -277,7 +277,7 @@ func TestIsAsciiUsingAscii(t *testing.T) {
 
 func TestIsAsciiUsingNonAscii(t *testing.T) {
 	var a string = "ü"
-	var c bool = IsASCII(a)
+	var c bool = IsAscii(a)
 	if c {
 		t.Errorf("TestIsAsciiUsingNonAscii Error")
 	}
@@ -316,5 +316,43 @@ func TestIsUsingWildcardFail(t *testing.T) {
 	var c bool = Is(a, b)
 	if c {
 		t.Errorf("TestIsUsingWildcardFail Error")
+	}
+}
+
+func TestTrimStringSuccess(t *testing.T) {
+	var a string = "Prambanan "
+	c := Trim(a)
+	if c != "Prambanan" {
+		t.Errorf("TestTrimStringSuccess Error")
+	}
+}
+
+func TestTrimArraySuccess(t *testing.T) {
+	var a []string = []string{"This ", "  Is", " Title "}
+	foundWords := make([]string, 0)
+	for _, word := range a {
+		t := Trim(word)
+		if t == "This" || t == "Is" || t == "Title" {
+			foundWords = append(foundWords, word)
+		}
+	}
+	if len(foundWords) != len(a) {
+		t.Errorf("TestTrimArraySuccess Error")
+	}
+}
+
+func TestIsEmpty(t *testing.T) {
+	var a string = "  "
+	var c bool = IsEmpty(a)
+	if !c {
+		t.Errorf("TestIsEmpty Error")
+	}
+}
+
+func TestIsNotEmpty(t *testing.T) {
+	var a string = "  Test"
+	var c bool = IsNotEmpty(a)
+	if !c {
+		t.Errorf("TestIsNotEmpty Error")
 	}
 }
