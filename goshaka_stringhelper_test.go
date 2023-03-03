@@ -356,3 +356,143 @@ func TestIsNotEmpty(t *testing.T) {
 		t.Errorf("TestIsNotEmpty Error")
 	}
 }
+
+func TestIsJsonValid(t *testing.T) {
+	a := `{"name":"John", "age":30, "city":"New York"}`
+	var c bool = IsJson(a)
+	if !c {
+		t.Errorf("TestIsJsonValid Error")
+	}
+}
+
+func TestIsJsonInvalid(t *testing.T) {
+	a := `{test=invalid}`
+	var c bool = IsJson(a)
+	if c {
+		t.Errorf("TestIsJsonInvalid Error")
+	}
+}
+
+func TestIsUlidValid(t *testing.T) {
+	a := `01EY7ZRSN1A8CB7WJ08N0Q2QH2`
+	var c bool = IsUlid(a)
+	if !c {
+		t.Errorf("TestIsUlidValid Error")
+	}
+}
+
+func TestIsUlidInvalid(t *testing.T) {
+	a := `XXXXXXXX`
+	var c bool = IsUlid(a)
+	if c {
+		t.Errorf("TestIsUlidValid Error")
+	}
+}
+
+func TestIsUuidValid(t *testing.T) {
+	a := `4b48d94c-9887-46c8-9eb7-d9fcb9fb55f3`
+	var c bool = IsUuid(a)
+	if !c {
+		t.Errorf("TestIsUlidValid Error")
+	}
+}
+
+func TestIsUuidInvalid(t *testing.T) {
+	a := `01EY7ZRSN1A8CB7WJ08N0Q2QH2`
+	var c bool = IsUuid(a)
+	if c {
+		t.Errorf("TestIsUlidValid Error")
+	}
+}
+
+func TestLcfirstString(t *testing.T) {
+	var a string = "This is it"
+	c := Lcfirst(a)
+	if c != "this is it" {
+		t.Errorf("TestLcfirstString Error")
+	}
+}
+
+func TestLcfirstArraySuccess(t *testing.T) {
+	var a []string = []string{"This is", "That is", "Not This"}
+
+	l := Lcfirst(a)
+
+	slices, ok := l.([]string)
+	if !ok {
+		t.Errorf("TestLcfirstArraySuccess Error")
+		return
+	}
+
+	foundWords := make([]string, 0)
+	for _, word := range slices {
+		if word == "that is" || word == "this is" || word == "not This" {
+			foundWords = append(foundWords, word)
+		}
+	}
+	if len(foundWords) != len(a) {
+		t.Errorf("TestLcfirstArraySuccess Error")
+	}
+}
+
+func TestLimit(t *testing.T) {
+	var a string = "Crazy fox over the top"
+	var c string = Limit(a, 9, "...")
+	if c != "Crazy fox..." {
+		t.Errorf("TestLimit Error")
+	}
+}
+
+func TestLowerString(t *testing.T) {
+	var a string = "This Is It"
+	c := Lower(a)
+	if c != "this is it" {
+		t.Errorf("TestLowerString Error")
+	}
+}
+
+func TestLowerArraySuccess(t *testing.T) {
+	var a []string = []string{"This Is", "That is", "Not This"}
+
+	l := Lower(a)
+
+	slices, ok := l.([]string)
+	if !ok {
+		t.Errorf("TestLcfirstArraySuccess Error")
+		return
+	}
+
+	foundWords := make([]string, 0)
+	for _, word := range slices {
+		if word == "that is" || word == "this is" || word == "not this" {
+			foundWords = append(foundWords, word)
+		}
+	}
+	if len(foundWords) != len(a) {
+		t.Errorf("TestLowerArraySuccess Error")
+	}
+}
+
+func TestLtrim(t *testing.T) {
+	var a string = "-----------------This Is It"
+	c := Ltrim(a, "-")
+	if c != "This Is It" {
+		t.Errorf("TestLtrim Error")
+	}
+}
+
+func TestMardown(t *testing.T) {
+	var a string = "# Goshaka"
+	c := Markdown(a)
+	if c != "<h1>Goshaka</h1>\n" {
+		t.Errorf("TestMarkdown Error")
+	}
+}
+
+func TestMask(t *testing.T) {
+	var a string = "+62890989999"
+	c := Mask(a, "*", 3)
+	if c != "+62*********" {
+		t.Errorf("TestMask Error")
+	}
+}

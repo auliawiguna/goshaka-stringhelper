@@ -6,10 +6,15 @@
 package goshakastringhelper
 
 import (
+	"encoding/json"
 	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/google/uuid"
+	"github.com/oklog/ulid"
+	"github.com/russross/blackfriday/v2"
 
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -327,7 +332,6 @@ func Is(s, pattern string) bool {
 }
 
 // To trim spaces
-// @Param	str	string
 // @Param	target	string|array
 // @Return	bool
 func Trim(target interface{}) interface{} {
@@ -348,7 +352,6 @@ func Trim(target interface{}) interface{} {
 }
 
 // To check whether the given target is empty or not
-// @Param	str	string
 // @Param	target	string|array
 // @Return	bool
 func IsEmpty(target string) bool {
@@ -357,10 +360,122 @@ func IsEmpty(target string) bool {
 }
 
 // To check whether the given target is empty or not
-// @Param	str	string
 // @Param	target	string|array
 // @Return	bool
 func IsNotEmpty(target string) bool {
 	t := Trim(target)
 	return t != ""
+}
+
+// To check whether the given target is a valid JSON
+// @Param	target	string
+// @Return	bool
+func IsJson(target string) bool {
+	var data interface{}
+	err := json.Unmarshal([]byte(target), &data)
+	return err == nil
+}
+
+// To check whether the given target is a valid ULID
+// @Param	target	string
+// @Return	bool
+func IsUlid(target string) bool {
+	_, err := ulid.Parse(target)
+	return err == nil
+}
+
+// To check whether the given target is a valid UUID
+// @Param	target	string
+// @Return	bool
+func IsUuid(target string) bool {
+	_, err := uuid.Parse(target)
+	return err == nil
+}
+
+// To returns the given string with the first character lowercased
+// @Param	target	string|array
+// @Return	interface
+func Lcfirst(target interface{}) interface{} {
+	switch v := target.(type) {
+	case string:
+		// Handle string parameter
+		var s string = fmt.Sprintf("%v", target)
+		return strings.ToLower(s[:1]) + s[1:]
+	case []string:
+		// Handle string array parameter
+		foundWords := make([]string, 0)
+		for i := 0; i < len(v); i++ {
+			var s string = fmt.Sprintf("%v", v[i])
+			var l string = strings.ToLower(s[:1]) + s[1:]
+			foundWords = append(foundWords, l)
+		}
+		return foundWords
+	}
+
+	return false
+}
+
+// To truncates the given string to the specified length
+// @Param	target	string
+// @Param	length	int
+// @Param	placeholder	string
+// @Return	string
+func Limit(target string, length int, placeholder string) string {
+	return target[0:length] + placeholder
+}
+
+// To returns lowercase the given string
+// @Param	target	string|array
+// @Return	interface
+func Lower(target interface{}) interface{} {
+	switch v := target.(type) {
+	case string:
+		// Handle string parameter
+		var s string = fmt.Sprintf("%v", target)
+		return strings.ToLower(s)
+	case []string:
+		// Handle string array parameter
+		foundWords := make([]string, 0)
+		for i := 0; i < len(v); i++ {
+			var s string = fmt.Sprintf("%v", v[i])
+			var l string = strings.ToLower(s)
+			foundWords = append(foundWords, l)
+		}
+		return foundWords
+	}
+
+	return false
+}
+
+// To trims the left side of the string
+// @Param	str	string
+// @Param	cutset	string
+// @Return	string
+func Ltrim(str, cutset string) string {
+	return strings.TrimLeft(str, cutset)
+}
+
+// To convert given markdown to the HTML format
+// @Param	str	string
+// @Return	string
+func Markdown(str string) string {
+	m := []byte(str)
+	html := blackfriday.Run(m)
+	return string(html)
+}
+
+// To masks a given string string with a repeated character
+// @Param	str	string
+// @Param	mask	string
+// @Param	start	int
+// @Return	string
+func Mask(str, mask string, start int) string {
+	b := []byte(str)
+	for i := 0; i < len(b); i++ {
+		if i >= start {
+			b[i] = []byte(mask)[0]
+		}
+	}
+
+	return string(b)
 }
