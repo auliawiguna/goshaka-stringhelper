@@ -479,3 +479,9 @@ func Mask(str, mask string, start int) string {
 
 	return string(b)
 }
+
+// To check whether str matches a given pattern
+func IsMatch(str, pattern string) bool {
+	re := regexp.MustCompile(pattern)
+	return re.MatchString(str)
+}

@@ -496,3 +496,11 @@ func TestMask(t *testing.T) {
 		t.Errorf("TestMask Error")
 	}
 }
+
+func TestIsMatch(t *testing.T) {
+	var a string = "foo bar"
+	c := IsMatch(a, "foo (.*)")
+	if !c {
+		t.Errorf("TestIsMatch Error")
+	}
+}
