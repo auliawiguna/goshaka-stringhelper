@@ -628,3 +628,26 @@ func WordCount(str string) int {
 
 	return len(a)
 }
+
+// To returns uppercase the given string
+// @Param	target	string|array
+// @Return	interface
+func Upper(target interface{}) interface{} {
+	switch v := target.(type) {
+	case string:
+		// Handle string parameter
+		var s string = fmt.Sprintf("%v", target)
+		return strings.ToUpper(s)
+	case []string:
+		// Handle string array parameter
+		foundWords := make([]string, 0)
+		for i := 0; i < len(v); i++ {
+			var s string = fmt.Sprintf("%v", v[i])
+			var l string = strings.ToUpper(s)
+			foundWords = append(foundWords, l)
+		}
+		return foundWords
+	}
+
+	return false
+}

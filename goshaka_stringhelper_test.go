@@ -614,3 +614,33 @@ func TestWordCount(t *testing.T) {
 		t.Errorf("TestWordCount Error")
 	}
 }
+
+func TestUpperString(t *testing.T) {
+	var a string = "This Is It"
+	c := Upper(a)
+	if c != "THIS IS IT" {
+		t.Errorf("TestUpperString Error")
+	}
+}
+
+func TestUpperArraySuccess(t *testing.T) {
+	var a []string = []string{"This Is", "That is", "Not This"}
+
+	l := Upper(a)
+
+	slices, ok := l.([]string)
+	if !ok {
+		t.Errorf("TestUpperArraySuccess Error")
+		return
+	}
+
+	foundWords := make([]string, 0)
+	for _, word := range slices {
+		if word == "THAT IS" || word == "THIS IS" || word == "NOT THIS" {
+			foundWords = append(foundWords, word)
+		}
+	}
+	if len(foundWords) != len(a) {
+		t.Errorf("TestUpperArraySuccess Error")
+	}
+}
