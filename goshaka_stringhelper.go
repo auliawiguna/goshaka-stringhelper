@@ -485,3 +485,93 @@ func IsMatch(str, pattern string) bool {
 	re := regexp.MustCompile(pattern)
 	return re.MatchString(str)
 }
+
+// To pad the left side of a string with another string until the final string reaches the desired length
+// @Param	str	string
+// @Param	pad	string
+// @Param	length	int
+// @Return	string
+func PadLeft(str, pad string, length int) string {
+	var b string = ""
+	var assigned int = 1
+	for i := 0; i < length; i++ {
+		for j := 0; j < len(pad); j++ {
+			if assigned <= length {
+				c := pad[j]
+				b = b + string(c)
+				assigned++
+			}
+		}
+	}
+
+	return string(b) + str
+}
+
+// To pad the left side of a string with another string until the final string reaches the desired length
+// @Param	str	string
+// @Param	pad	string
+// @Param	length	int
+// @Return	string
+func PadRight(str, pad string, length int) string {
+	var b string = ""
+	var assigned int = 1
+	for i := 0; i < length; i++ {
+		for j := 0; j < len(pad); j++ {
+			if assigned <= length {
+				c := pad[j]
+				b = b + string(c)
+				assigned++
+			}
+		}
+	}
+
+	return str + string(b)
+}
+
+// To remove target from str
+// @Param	str	string
+// @Param	target	string
+// @Return	string
+func Remove(str, target string) string {
+	return strings.ReplaceAll(str, target, "")
+}
+
+// To replace target in str into replace
+// @Param	str	string
+// @Param	target	string
+// @Return	string
+func Replace(str, target, replace string) string {
+	return strings.ReplaceAll(str, target, replace)
+}
+
+// To remove all symbol and space from str
+// @Param	str	string
+// @Return	string
+func RemoveSymbol(str string) string {
+	reg := regexp.MustCompile("[^a-zA-Z0-9]+")
+	return reg.ReplaceAllString(str, "")
+}
+
+// To trims the right side of the string
+// @Param	str	string
+// @Param	cutset	string
+// @Return	string
+func Rtrim(str, cutset string) string {
+	return strings.TrimRight(str, cutset)
+}
+
+// To split string into an array
+// @Param	str	string
+// @Param	delimiter	string
+// @Return	array of string
+func Split(str, delimiter string) []string {
+	return strings.Split(str, delimiter)
+}
+
+// To squish extra spaces from a string
+// @Param	str	string
+// @Return	string
+func Squish(str string) string {
+	reg := regexp.MustCompile(`\s+`)
+	return reg.ReplaceAllString(str, " ")
+}

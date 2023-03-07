@@ -504,3 +504,72 @@ func TestIsMatch(t *testing.T) {
 		t.Errorf("TestIsMatch Error")
 	}
 }
+
+func TestPadLeft(t *testing.T) {
+	var a string = "foo bar"
+	c := PadLeft(a, "+-", 7)
+
+	if c != "+-+-+-+foo bar" {
+		t.Errorf("TestPadLeft Error")
+	}
+}
+
+func TestPadRight(t *testing.T) {
+	var a string = "foo bar"
+	c := PadRight(a, "+-", 7)
+
+	if c != "foo bar+-+-+-+" {
+		t.Errorf("TestPadRight Error")
+	}
+}
+
+func TestRemove(t *testing.T) {
+	var a string = "cinta brontosaurus"
+	c := Remove(a, "a")
+
+	if c != "cint brontosurus" {
+		t.Errorf("TestRemove Error")
+	}
+}
+
+func TestReplace(t *testing.T) {
+	var a string = "cinta brontosaurus"
+	c := Replace(a, "a", "b")
+
+	if c != "cintb brontosburus" {
+		t.Errorf("TestReplace Error")
+	}
+}
+
+func TestRemoveSymbol(t *testing.T) {
+	var a string = "This is an example with spaces, commas, and a period."
+	c := RemoveSymbol(a)
+
+	if c != "Thisisanexamplewithspacescommasandaperiod" {
+		t.Errorf("TestRemoveSymbol Error")
+	}
+}
+
+func TestRTrim(t *testing.T) {
+	c := Rtrim("halo---", "-")
+
+	if c != "halo" {
+		t.Errorf("TestRTrim Error")
+	}
+}
+
+func TestSplit(t *testing.T) {
+	c := Split("apple,sony,samsung,polytron", ",")
+
+	if len(c) != 4 {
+		t.Errorf("TestSplit Error")
+	}
+}
+
+func TestSquish(t *testing.T) {
+	c := Squish("This  is   a  test  string   with extra   spaces.")
+
+	if c != "This is a test string with extra spaces." {
+		t.Errorf("TestSquish Error")
+	}
+}
