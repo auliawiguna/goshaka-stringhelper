@@ -644,3 +644,10 @@ func TestUpperArraySuccess(t *testing.T) {
 		t.Errorf("TestUpperArraySuccess Error")
 	}
 }
+
+func TestRandom(t *testing.T) {
+	c := Random(10)
+	if len(c) != 10 {
+		t.Errorf("TestRandom Error")
+	}
+}

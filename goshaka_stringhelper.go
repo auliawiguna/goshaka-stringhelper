@@ -8,9 +8,11 @@ package goshakastringhelper
 import (
 	"encoding/json"
 	"fmt"
+	"math/rand"
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/oklog/ulid"
@@ -650,4 +652,16 @@ func Upper(target interface{}) interface{} {
 	}
 
 	return false
+}
+
+func Random(length int) string {
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	rand.Seed(time.Now().UnixNano())
+
+	b := make([]byte, length)
+	for i := range b {
+		b[i] = charset[rand.Intn(len(charset))]
+	}
+
+	return string(b)
 }
