@@ -575,3 +575,12 @@ func Squish(str string) string {
 	reg := regexp.MustCompile(`\s+`)
 	return reg.ReplaceAllString(str, " ")
 }
+
+// To get a substring from a string
+// @Param	str	string
+// @Param	start	int
+// @Param	end	int
+// @Return	string
+func Substr(str string, start, end int) string {
+	return str[start:end]
+}

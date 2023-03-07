@@ -573,3 +573,11 @@ func TestSquish(t *testing.T) {
 		t.Errorf("TestSquish Error")
 	}
 }
+
+func TestSubstr(t *testing.T) {
+	c := Substr("Crazy Frog", 0, 5)
+
+	if c != "Crazy" {
+		t.Errorf("TestSubstr Error")
+	}
+}
