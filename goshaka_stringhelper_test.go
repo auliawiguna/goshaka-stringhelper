@@ -541,6 +541,15 @@ func TestReplace(t *testing.T) {
 	}
 }
 
+func TestRemoveSymbolExceptSpace(t *testing.T) {
+	var a string = "This is an example with spaces, commas, and a period."
+	c := RemoveSymbolExceptSpace(a)
+
+	if c != "This is an example with spaces commas and a period" {
+		t.Errorf("TestRemoveSymbolExceptSpace Error")
+	}
+}
+
 func TestRemoveSymbol(t *testing.T) {
 	var a string = "This is an example with spaces, commas, and a period."
 	c := RemoveSymbol(a)
@@ -579,5 +588,29 @@ func TestSubstr(t *testing.T) {
 
 	if c != "Crazy" {
 		t.Errorf("TestSubstr Error")
+	}
+}
+
+func TestReserve(t *testing.T) {
+	c := Reverse("crazy frog")
+
+	if c != "gorf yzarc" {
+		t.Errorf("TestReserve Error")
+	}
+}
+
+func TestIsPalindrome(t *testing.T) {
+	c := IsPalindrome("tamat")
+
+	if !c {
+		t.Errorf("TestIsPalindrome Error")
+	}
+}
+
+func TestWordCount(t *testing.T) {
+	c := WordCount("the word is    ugly!")
+
+	if c != 4 {
+		t.Errorf("TestWordCount Error")
 	}
 }

@@ -552,6 +552,14 @@ func RemoveSymbol(str string) string {
 	return reg.ReplaceAllString(str, "")
 }
 
+// To remove all symbol from str
+// @Param	str	string
+// @Return	string
+func RemoveSymbolExceptSpace(str string) string {
+	reg := regexp.MustCompile("[^a-zA-Z0-9\\s]+")
+	return reg.ReplaceAllString(str, "")
+}
+
 // To trims the right side of the string
 // @Param	str	string
 // @Param	cutset	string
@@ -583,4 +591,40 @@ func Squish(str string) string {
 // @Return	string
 func Substr(str string, start, end int) string {
 	return str[start:end]
+}
+
+// To reverse a string
+// @Param	str	string
+// @Return	string
+func Reverse(str string) (res string) {
+	for _, v := range str {
+		res = string(v) + res
+	}
+
+	return
+}
+
+// To check whether the given target is palindrome or not
+// @Param	str	string
+// @Return	bool
+func IsPalindrome(str string) bool {
+	ret := true
+	for i := 0; i < len(str)/2; i++ {
+		if str[i] != str[len(str)-i-1] {
+			ret = false
+			break
+		}
+	}
+
+	return ret
+}
+
+// Returns the number of words that a string contains
+// @Param	str	string
+// @Return	int
+func WordCount(str string) int {
+	var s string = Squish(RemoveSymbolExceptSpace(str))
+	a := Split(s, " ")
+
+	return len(a)
 }
