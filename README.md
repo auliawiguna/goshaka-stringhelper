@@ -20,7 +20,7 @@ Go string helpers inspered by Laravel's :)
 To get string after given mark
 
 ```
-  After(source, mark string) string
+After(source, mark string) string
 ```
 
 | Parameter | Type     | Description                |
@@ -28,6 +28,14 @@ To get string after given mark
 | `source` | `string` | **Required**. Source text |
 | `mark` | `string` | **Required**. Mark text |
 
+Usage:
+
+```
+After("This is World of Oz", "is World")
+```
+
+Result:
+` of Oz`
 ### AfterLast
 
 To get string after last occurence of given mark
@@ -41,6 +49,37 @@ To get string after last occurence of given mark
 | `source` | `string` | **Required**. Source text |
 | `mark` | `string` | **Required**. Mark text |
 
+Usage:
+
+```
+AfterLast("This is World of Oz and World of Colony and the World of Irony", "World of")
+```
+
+Result:
+` Irony`
+
+### Before
+
+To get string before given mark
+
+```
+  Before(source, mark string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+| `mark` | `string` | **Required**. Mark text |
+
+Usage:
+
+```
+Before("This is World of Oz", "is World")
+```
+
+Result:
+`This `
+
 
 
 # Running Tests
@@ -51,3 +90,4 @@ To run tests, run the following command
   go test
 ```
 
+ang   
