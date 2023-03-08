@@ -80,6 +80,27 @@ Before("This is World of Oz", "is World")
 Result:
 `This `
 
+### BeforeLast
+
+To get string before the last occurence of given mark
+
+```
+  BeforeLast(source, mark string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+| `mark` | `string` | **Required**. Mark text |
+
+Usage:
+
+```
+BeforeLast("This is World of Oz and World of Colony and the World of Irony", "World of")
+```
+
+Result:
+`This is World of Oz and World of Colony and the  `
 
 
 # Running Tests
@@ -89,5 +110,3 @@ To run tests, run the following command
 ```bash
   go test
 ```
-
-ang   
