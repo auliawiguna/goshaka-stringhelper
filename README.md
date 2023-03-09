@@ -405,6 +405,85 @@ IsEmpty("    ")
 
 Result: `true`
 
+### IsNotEmpty
+
+To check whether the given target is empty or not
+
+```
+  IsNotEmpty(target string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+IsNotEmpty(" x    ")
+```
+
+Result: `true`
+
+### IsJson
+
+To check whether the given target is a valid JSON
+
+```
+  IsJson(target string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+IsJson("{"name":"John", "age":30, "city":"New York"}")
+```
+
+Result: `true`
+
+### IsUlid
+
+To check whether the given target is a valid ULID
+
+```
+  IsUlid(target string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+IsUlid("01EY7ZRSN1A8CB7WJ08N0Q2QH2")
+```
+
+Result: `true`
+
+### IsUuid
+
+To check whether the given target is a valid ULID
+
+```
+  IsUuid(target string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+IsUuid("4b48d94c-9887-46c8-9eb7-d9fcb9fb55f3")
+```
+
+Result: `true`
 # Running Tests
 
 To run tests, run the following command
