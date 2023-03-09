@@ -655,6 +655,9 @@ func Upper(target interface{}) interface{} {
 	return false
 }
 
+// To returns random alphanumeric characters
+// @Param	length	int
+// @Return	interface
 func Random(length int) string {
 	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	rand.Seed(time.Now().UnixNano())

@@ -588,6 +588,27 @@ Ltrim("-----------------This Is It", "-")
 
 Result: `This Is It`
 
+### Rtrim
+
+To trims the right side of the string
+
+```
+  Rtrim(str, cutset string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `cutset` | `int` | **Required**. Ltrim cut set |
+
+Usage:
+
+```
+Rtrim(This Is It("-----------------", "-")
+```
+
+Result: `This Is It`
+
 ### Markdown
 
 To convert given markdown to the HTML format
@@ -757,6 +778,190 @@ RemoveSymbol("This is an example with spaces, commas, and a period.")
 ```
 
 Result: `Thisisanexamplewithspacescommasandaperiod`
+
+### RemoveSymbolExceptSpace
+
+To remove all symbol from str
+
+```
+  RemoveSymbolExceptSpace(str string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+RemoveSymbolExceptSpace("This is an example with spaces, commas, and a period.")
+```
+
+Result: `This is an example with spaces commas and a period`
+
+### Split
+
+To split string into an array
+
+```
+  Split(param, delimiter string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `param` | `string` | **Required**. Source text |
+| `delimiter` | `int` | **Required**. Delimiter |
+
+Usage:
+
+```
+Split("apple,sony,samsung,polytron", ",")
+```
+
+Result: `[apple sony samsung polytron]`
+
+### Squish
+
+To squish extra spaces from a string
+
+```
+  Squish(param string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `param` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Squish("This  is   a  test  string   with extra   spaces.")
+```
+
+Result: `This is a test string with extra spaces.`
+
+### Substr
+
+To get a substring from a string
+
+```
+  Substr(str string, start, end int)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `start` | `int` | **Required**. Start index |
+| `end` | `int` | **Required**. Finish index |
+
+Usage:
+
+```
+Substr("Crazy Frog", 0, 5)
+```
+
+Result: `Crazy`
+
+### Reverse
+
+To reverse a string
+
+```
+  Reverse(str string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Reverse("Crazy")
+```
+
+Result: `yzarC`
+
+### IsPalindrome
+
+To check whether the given target is palindrome or not
+
+```
+  IsPalindrome(str string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+IsPalindrome("tamat")
+```
+
+Result: `true`
+
+### WordCount
+
+Returns the number of words that a string contains
+
+```
+  WordCount(str string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+WordCount("this is it")
+```
+
+Result: `3`
+
+### Upper
+
+To returns uppercase the given string
+
+```
+  Upper(target {}interface)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `array OR string` | **Required**. Target text |
+
+Usage:
+
+```
+Upper("This Is Title")
+```
+
+Result: `THIS IS TITLE`
+
+### Random
+
+To returns random alphanumeric characters
+
+```
+  Random(length int)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `length` | `int` | **Required**. Length of the result |
+
+Usage:
+
+```
+Random(4)
+```
+
+Result: `JiFyN`
+
 
 # Running Tests
 
