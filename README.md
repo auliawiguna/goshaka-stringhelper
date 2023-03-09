@@ -142,6 +142,106 @@ BetweenFirst("[a] [b] XX [c]", "[", "]")
 
 Result: `a`
 
+### Camel
+
+To convert str into camel case (camelCase)
+
+```
+  Camel(source string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Camel("i feel good")
+```
+
+Result: `iFeelGood`
+
+### Pascal
+
+To convert str into pascal case (PascalCase)
+
+```
+  Pascal(source string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Pascal("i feel good")
+```
+
+Result: `IFeelGood`
+
+### Snake
+
+To convert str into snake case (snake_case)
+
+```
+  Snake(source string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Snake("i feel good")
+```
+
+Result: `i_feel_good`
+
+### Kebab
+
+To convert str into kebab case (kebab-case)
+
+```
+  Kebab(source string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Kebab("i feel good")
+```
+
+Result: `i-feel-good`
+
+### Headline
+
+To convert str into headline case (Headline Case)
+
+```
+  Headline(source string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Headline("i feel good")
+```
+
+Result: `I Feel Good`
+
 # Running Tests
 
 To run tests, run the following command
