@@ -324,6 +324,87 @@ Finish("This Is Title", "Title")
 
 Result: `This Is Title`
 
+### IsAscii
+
+To checks if param is ascii
+
+```
+  IsAscii(param {}interface)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `param` | `int OR string` | **Required**. param |
+
+Usage:
+
+```
+IsAscii("X")
+```
+
+Result: `true`
+
+### Is
+
+To checks if s is match with pattern
+
+```
+  Is(s, pattern string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `s` | `string` | **Required**. Source text |
+| `pattern` | `string` | **Required**. Pattern text |
+
+Usage:
+
+```
+Is("Prambanan", "Pram*")
+```
+
+Result: `true`
+
+### Trim
+
+To trim spaces
+
+```
+  Trim(param {}interface)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `string OR array` | **Required**. Source text |
+
+Usage:
+
+```
+Trim("Prambanan ")
+```
+
+Result: `Prambanan`
+
+### IsEmpty
+
+To check whether the given target is empty or not
+
+```
+  IsEmpty(target string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+IsEmpty("    ")
+```
+
+Result: `true`
+
 # Running Tests
 
 To run tests, run the following command
