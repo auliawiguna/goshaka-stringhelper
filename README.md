@@ -293,7 +293,7 @@ To determine if str is ends with target
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `str` | `string` | **Required**. Source text |
-| `target` | `array|string` | **Required**. Target text |
+| `target` | `array OR string` | **Required**. Target text |
 
 Usage:
 
