@@ -484,6 +484,69 @@ IsUuid("4b48d94c-9887-46c8-9eb7-d9fcb9fb55f3")
 ```
 
 Result: `true`
+
+### Lcfirst
+
+To returns the given string with the first character lowercased
+
+```
+  Lcfirst(target {}interface)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `array OR string` | **Required**. Target text |
+
+Usage:
+
+```
+Lcfirst("This Is It")
+```
+
+Result: `this Is It`
+
+### Lcfirst
+
+To returns the given string with the first character lowercased
+
+```
+  Lcfirst(target {}interface)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `array OR string` | **Required**. Target text |
+
+Usage:
+
+```
+Lcfirst("This Is It")
+```
+
+Result: `this Is It`
+
+### Limit
+
+To truncates the given string to the specified length
+
+```
+  Limit(target string, length int, placeholder string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `string` | **Required**. Source text |
+| `length` | `int` | **Required**. Length |
+| `placeholder` | `string` | **Required**. Placeholder |
+
+Usage:
+
+```
+Limit("Crazy fox over the top", 9, "...")
+```
+
+Result: `Crazy fox...`
+
 # Running Tests
 
 To run tests, run the following command
