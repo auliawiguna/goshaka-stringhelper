@@ -242,6 +242,88 @@ Headline("i feel good")
 
 Result: `I Feel Good`
 
+### Contains
+
+To determine if target is exists in str
+
+```
+  Contains(str, target string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `target` | `string` | **Required**. Target text |
+
+Usage:
+
+```
+Contains("i feel good", "feel")
+```
+
+### ContainsAll
+
+To determine if array of target are/is exists in str
+
+```
+  ContainsAll(str string, target []string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `target` | `[]string` | **Required**. Array of the target text |
+
+Usage:
+
+```
+ContainsAll("i feel good", []string{"i", "feel", "good"})
+```
+
+Result: `true`
+
+### EndsWith
+
+To determine if str is ends with target
+
+```
+  EndsWith(str string, target {}interface)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `target` | `array|string` | **Required**. Target text |
+
+Usage:
+
+```
+EndsWith("This Is Title", "Not")
+```
+
+Result: `false`
+
+### Finish
+
+To adds a "add" to "str" if it does not already end with "add"
+
+```
+  Finish(str, add string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `add` | `string` | **Required**. Target text |
+
+Usage:
+
+```
+Finish("This Is Title", "Title")
+```
+
+Result: `This Is Title`
+
 # Running Tests
 
 To run tests, run the following command
