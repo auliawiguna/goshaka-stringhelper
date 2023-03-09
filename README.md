@@ -34,8 +34,7 @@ Usage:
 After("This is World of Oz", "is World")
 ```
 
-Result:
-` of Oz`
+Result: ` of Oz`
 ### AfterLast
 
 To get string after last occurence of given mark
@@ -55,8 +54,7 @@ Usage:
 AfterLast("This is World of Oz and World of Colony and the World of Irony", "World of")
 ```
 
-Result:
-` Irony`
+Result: ` Irony`
 
 ### Before
 
@@ -77,8 +75,7 @@ Usage:
 Before("This is World of Oz", "is World")
 ```
 
-Result:
-`This `
+Result: `This `
 
 ### BeforeLast
 
@@ -99,9 +96,51 @@ Usage:
 BeforeLast("This is World of Oz and World of Colony and the World of Irony", "World of")
 ```
 
-Result:
-`This is World of Oz and World of Colony and the  `
+Result: `This is World of Oz and World of Colony and the  `
 
+### Between
+
+To get string between the first occurence of "start" and the last occurence of "stop"
+
+```
+  Between(source, start, stop string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+| `start` | `string` | **Required**. Mark text |
+| `stop` | `string` | **Required**. Mark text |
+
+Usage:
+
+```
+Between("This is World of Oz", "This", "of")
+```
+
+Result: ` is World `
+
+### BetweenFirst
+
+To get the smallest possible portion of a string between "start" and "stop"
+
+```
+  BetweenFirst(source, start, stop string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `source` | `string` | **Required**. Source text |
+| `start` | `string` | **Required**. Mark text |
+| `stop` | `string` | **Required**. Mark text |
+
+Usage:
+
+```
+BetweenFirst("[a] [b] XX [c]", "[", "]")
+```
+
+Result: `a`
 
 # Running Tests
 
