@@ -509,7 +509,7 @@ func PadLeft(str, pad string, length int) string {
 	return string(b) + str
 }
 
-// To pad the left side of a string with another string until the final string reaches the desired length
+// To pad the right side of a string with another string until the final string reaches the desired length
 // @Param	str	string
 // @Param	pad	string
 // @Param	length	int
@@ -541,6 +541,7 @@ func Remove(str, target string) string {
 // To replace target in str into replace
 // @Param	str	string
 // @Param	target	string
+// @Param	replace	string
 // @Return	string
 func Replace(str, target, replace string) string {
 	return strings.ReplaceAll(str, target, replace)

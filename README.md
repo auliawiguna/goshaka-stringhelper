@@ -547,6 +547,217 @@ Limit("Crazy fox over the top", 9, "...")
 
 Result: `Crazy fox...`
 
+### Lower
+
+To returns lowercase the given string
+
+```
+  Lower(target {}interface)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `target` | `array OR string` | **Required**. Target text |
+
+Usage:
+
+```
+Lower("This Is It")
+```
+
+Result: `this is it`
+
+### Ltrim
+
+To trims the left side of the string
+
+```
+  Ltrim(str, cutset string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `cutset` | `int` | **Required**. Ltrim cut set |
+
+Usage:
+
+```
+Ltrim("-----------------This Is It", "-")
+```
+
+Result: `This Is It`
+
+### Markdown
+
+To convert given markdown to the HTML format
+
+```
+  Markdown(str string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+Markdown("# Goshaka")
+```
+
+Result: `<h1>Goshaka</h1>\n`
+
+### Mask
+
+To masks a given string string with a repeated character
+
+```
+  Mask(str, mask string, start int)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `mask` | `string` | **Required**. Mask text |
+| `start` | `int` | **Required**. Initial index |
+
+Usage:
+
+```
+Mask("+62890989999", "*", 3)
+```
+
+Result: `+62*********`
+
+### IsMatch
+
+To check whether str matches a given pattern
+
+```
+  IsMatch(str, pattern string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `pattern` | `string` | **Required**. Match pattern |
+
+Usage:
+
+```
+IsMatch("foo bar", "foo (.*)")
+```
+
+Result: `true`
+
+### PadLeft
+
+To pad the left side of a string with another string until the final string reaches the desired length
+
+```
+  PadLeft(str, pad string, length int)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `pad` | `string` | **Required**. Pad pattern |
+| `length` | `int` | **Required**. Length of pad |
+
+Usage:
+
+```
+PadLeft("foo bar", "+-", 7)
+```
+
+Result: `+-+-+-+foo bar`
+
+### PadRight
+
+To pad the right side of a string with another string until the final string reaches the desired length
+
+```
+  PadRight(str, pad string, length int)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `pad` | `string` | **Required**. Pad pattern |
+| `length` | `int` | **Required**. Length of pad |
+
+Usage:
+
+```
+PadRight("foo bar", "+-", 7)
+```
+
+Result: `foo bar+-+-+-+`
+
+### Remove
+
+To remove target from str
+
+```
+  Remove(str, target string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `target` | `string` | **Required**. Target text |
+
+Usage:
+
+```
+Remove("cinta brontosaurus", "a")
+```
+
+Result: `cint brontosurus`
+
+### Replace
+
+To replace target in str into replace
+
+```
+  Replace(str, target, replace string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+| `target` | `string` | **Required**. Target text |
+| `replace` | `string` | **Required**. Replace text |
+
+Usage:
+
+```
+Replace("cinta brontosaurus", "a", "b")
+```
+
+Result: `cintb brontosburus`
+
+### RemoveSymbol
+
+To remove all symbol and space from str
+
+```
+  RemoveSymbol(str string)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `str` | `string` | **Required**. Source text |
+
+Usage:
+
+```
+RemoveSymbol("This is an example with spaces, commas, and a period.")
+```
+
+Result: `Thisisanexamplewithspacescommasandaperiod`
+
 # Running Tests
 
 To run tests, run the following command
