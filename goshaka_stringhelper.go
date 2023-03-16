@@ -23,9 +23,10 @@ import (
 )
 
 // To get string after given mark
-// @Param	source	string
-// @Param	mark	string
-// @Return	string
+//
+// param	source	string
+// param	mark	string
+// return	string
 func After(source, mark string) string {
 	i := strings.Index(source, mark)
 
@@ -37,9 +38,10 @@ func After(source, mark string) string {
 }
 
 // To get string after last occurence of given mark
-// @Param	source	string
-// @Param	mark	string
-// @Return	string
+//
+// param	source	string
+// param	mark	string
+// return	string
 func AfterLast(source, mark string) string {
 	i := strings.LastIndex(source, mark)
 
@@ -51,9 +53,10 @@ func AfterLast(source, mark string) string {
 }
 
 // To get string before given mark
-// @Param	source	string
-// @Param	mark	string
-// @Return	string
+//
+// param	source	string
+// param	mark	string
+// return	string
 func Before(source, mark string) string {
 	i := strings.Index(source, mark)
 
@@ -65,9 +68,10 @@ func Before(source, mark string) string {
 }
 
 // To get string before the last occurence of given mark
-// @Param	source	string
-// @Param	mark	string
-// @Return	string
+//
+// param	source	string
+// param	mark	string
+// return	string
 func BeforeLast(source, mark string) string {
 	i := strings.LastIndex(source, mark)
 
@@ -79,10 +83,11 @@ func BeforeLast(source, mark string) string {
 }
 
 // To get string between the first occurence of "start" and the last occurence of "stop"
-// @Param	source	string
-// @Param	start	string
-// @Param	stop	string
-// @Return	string
+//
+// param	source	string
+// param	start	string
+// param	stop	string
+// return	string
 func Between(source, start, stop string) string {
 	iStart := strings.Index(source, start)
 	iStop := strings.LastIndex(source, stop)
@@ -95,10 +100,11 @@ func Between(source, start, stop string) string {
 }
 
 // To get the smallest possible portion of a string between "start" and "stop"
-// @Param	source	string
-// @Param	start	string
-// @Param	stop	string
-// @Return	string
+//
+// param	source	string
+// param	start	string
+// param	stop	string
+// return	string
 func BetweenFirst(source, start, stop string) string {
 	iStart := strings.Index(source, start)
 	iStop := strings.Index(source, stop)
@@ -111,8 +117,9 @@ func BetweenFirst(source, start, stop string) string {
 }
 
 // To convert str into camel case (camelCase)
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Camel(str string) string {
 	// Replace underscores and dashes with spaces
 	r := regexp.MustCompile("[-_]")
@@ -132,8 +139,9 @@ func Camel(str string) string {
 }
 
 // To convert str into camel case (PascalCase)
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Pascal(str string) string {
 	// Replace underscores and dashes with spaces
 	r := regexp.MustCompile("[-_]")
@@ -150,8 +158,9 @@ func Pascal(str string) string {
 }
 
 // To convert str into snake case (snake_case)
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Snake(str string) string {
 	// Replace any uppercase letter with "_<lowercase letter>"
 	r := regexp.MustCompile("([A-Z])")
@@ -179,8 +188,9 @@ func Snake(str string) string {
 }
 
 // To convert str into kebab case (kebab-case)
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Kebab(str string) string {
 	// Replace any underscores with empty strings
 	str = strings.ReplaceAll(str, "_", "")
@@ -211,8 +221,9 @@ func Kebab(str string) string {
 }
 
 // To convert str into headline case
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Headline(str string) string {
 	// Replace any underscores with spaces
 	str = strings.ReplaceAll(str, "_", " ")
@@ -235,17 +246,19 @@ func Headline(str string) string {
 }
 
 // To determine if target is exists in str
-// @Param	str	string
-// @Param	target	string
-// @Return	bool
+//
+// param	str	string
+// param	target	string
+// return	bool
 func Contains(str, target string) bool {
 	return strings.Contains(str, target)
 }
 
 // To determine if target is exists in str
-// @Param	str	string
-// @Param	target	string
-// @Return	bool
+//
+// param	str	string
+// param	target	string
+// return	bool
 func ContainsAll(str string, target []string) bool {
 	foundWords := make([]string, 0)
 	for _, word := range target {
@@ -258,9 +271,10 @@ func ContainsAll(str string, target []string) bool {
 }
 
 // To determine if str is ends with target
-// @Param	str	string
-// @Param	target	string|array
-// @Return	bool
+//
+// param	str	string
+// param	target	string|array
+// return	bool
 func EndsWith(str string, target interface{}) bool {
 	switch v := target.(type) {
 	case string:
@@ -281,9 +295,10 @@ func EndsWith(str string, target interface{}) bool {
 }
 
 // To adds a "add" to "str" if it does not already end with "add"
-// @Param	str	string
-// @Param	add	string
-// @Return	string
+//
+// param	str	string
+// param	add	string
+// return	string
 func Finish(str, add string) string {
 	if EndsWith(str, add) {
 		return str
@@ -292,8 +307,9 @@ func Finish(str, add string) string {
 }
 
 // To checks if param is ascii
-// @Param	param	int|string
-// @Return	bool
+//
+// param	param	int|string
+// return	bool
 func IsAscii(param interface{}) bool {
 	switch v := param.(type) {
 	case int:
@@ -325,17 +341,19 @@ func IsAscii(param interface{}) bool {
 }
 
 // To checks if s is match with pattern
-// @Param	s	string
-// @Param	pattern	string
-// @Return	bool
+//
+// param	s	string
+// param	pattern	string
+// return	bool
 func Is(s, pattern string) bool {
 	re := regexp.MustCompile(pattern)
 	return re.MatchString(s)
 }
 
 // To trim spaces
-// @Param	target	string|array
-// @Return	bool
+//
+// param	target	string|array
+// return	bool
 func Trim(target interface{}) interface{} {
 	switch v := target.(type) {
 	case string:
@@ -354,24 +372,26 @@ func Trim(target interface{}) interface{} {
 }
 
 // To check whether the given target is empty or not
-// @Param	target	string|array
-// @Return	bool
+//
+// param	target	string|array
+// return	bool
 func IsEmpty(target string) bool {
 	t := Trim(target)
 	return t == ""
 }
 
 // To check whether the given target is empty or not
-// @Param	target	string|array
-// @Return	bool
+// param	target	string|array
+// return	bool
 func IsNotEmpty(target string) bool {
 	t := Trim(target)
 	return t != ""
 }
 
 // To check whether the given target is a valid JSON
-// @Param	target	string
-// @Return	bool
+//
+// param	target	string
+// return	bool
 func IsJson(target string) bool {
 	var data interface{}
 	err := json.Unmarshal([]byte(target), &data)
@@ -379,24 +399,27 @@ func IsJson(target string) bool {
 }
 
 // To check whether the given target is a valid ULID
-// @Param	target	string
-// @Return	bool
+//
+// param	target	string
+// return	bool
 func IsUlid(target string) bool {
 	_, err := ulid.Parse(target)
 	return err == nil
 }
 
 // To check whether the given target is a valid UUID
-// @Param	target	string
-// @Return	bool
+//
+// param	target	string
+// return	bool
 func IsUuid(target string) bool {
 	_, err := uuid.Parse(target)
 	return err == nil
 }
 
 // To returns the given string with the first character lowercased
-// @Param	target	string|array
-// @Return	interface
+//
+// param	target	string|array
+// return	interface
 func Lcfirst(target interface{}) interface{} {
 	switch v := target.(type) {
 	case string:
@@ -418,17 +441,19 @@ func Lcfirst(target interface{}) interface{} {
 }
 
 // To truncates the given string to the specified length
-// @Param	target	string
-// @Param	length	int
-// @Param	placeholder	string
-// @Return	string
+//
+// param	target	string
+// param	length	int
+// param	placeholder	string
+// return	string
 func Limit(target string, length int, placeholder string) string {
 	return target[0:length] + placeholder
 }
 
 // To returns lowercase the given string
-// @Param	target	string|array
-// @Return	interface
+//
+// param	target	string|array
+// return	interface
 func Lower(target interface{}) interface{} {
 	switch v := target.(type) {
 	case string:
@@ -450,16 +475,18 @@ func Lower(target interface{}) interface{} {
 }
 
 // To trims the left side of the string
-// @Param	str	string
-// @Param	cutset	string
-// @Return	string
+//
+// param	str	string
+// param	cutset	string
+// return	string
 func Ltrim(str, cutset string) string {
 	return strings.TrimLeft(str, cutset)
 }
 
 // To convert given markdown to the HTML format
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Markdown(str string) string {
 	m := []byte(str)
 	html := blackfriday.Run(m)
@@ -467,10 +494,11 @@ func Markdown(str string) string {
 }
 
 // To masks a given string string with a repeated character
-// @Param	str	string
-// @Param	mask	string
-// @Param	start	int
-// @Return	string
+//
+// param	str	string
+// param	mask	string
+// param	start	int
+// return	string
 func Mask(str, mask string, start int) string {
 	b := []byte(str)
 	for i := 0; i < len(b); i++ {
@@ -483,16 +511,21 @@ func Mask(str, mask string, start int) string {
 }
 
 // To check whether str matches a given pattern
+//
+// param	str	string
+// param	pattern	string
+// return	bool
 func IsMatch(str, pattern string) bool {
 	re := regexp.MustCompile(pattern)
 	return re.MatchString(str)
 }
 
 // To pad the left side of a string with another string until the final string reaches the desired length
-// @Param	str	string
-// @Param	pad	string
-// @Param	length	int
-// @Return	string
+//
+// param	str	string
+// param	pad	string
+// param	length	int
+// return	string
 func PadLeft(str, pad string, length int) string {
 	var b string = ""
 	var assigned int = 1
@@ -510,10 +543,11 @@ func PadLeft(str, pad string, length int) string {
 }
 
 // To pad the right side of a string with another string until the final string reaches the desired length
-// @Param	str	string
-// @Param	pad	string
-// @Param	length	int
-// @Return	string
+//
+// param	str	string
+// param	pad	string
+// param	length	int
+// return	string
 func PadRight(str, pad string, length int) string {
 	var b string = ""
 	var assigned int = 1
@@ -531,74 +565,83 @@ func PadRight(str, pad string, length int) string {
 }
 
 // To remove target from str
-// @Param	str	string
-// @Param	target	string
-// @Return	string
+//
+// param	str	string
+// param	target	string
+// return	string
 func Remove(str, target string) string {
 	return strings.ReplaceAll(str, target, "")
 }
 
 // To replace target in str into replace
-// @Param	str	string
-// @Param	target	string
-// @Param	replace	string
-// @Return	string
+//
+// param	str	string
+// param	target	string
+// param	replace	string
+// return	string
 func Replace(str, target, replace string) string {
 	return strings.ReplaceAll(str, target, replace)
 }
 
 // To remove all symbol and space from str
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func RemoveSymbol(str string) string {
 	reg := regexp.MustCompile("[^a-zA-Z0-9]+")
 	return reg.ReplaceAllString(str, "")
 }
 
 // To remove all symbol from str
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func RemoveSymbolExceptSpace(str string) string {
-	reg := regexp.MustCompile("[^a-zA-Z0-9\\s]+")
+	reg := regexp.MustCompile(`[^a-zA-Z0-9\\s]+`)
 	return reg.ReplaceAllString(str, "")
 }
 
 // To trims the right side of the string
-// @Param	str	string
-// @Param	cutset	string
-// @Return	string
+//
+// param	str	string
+// param	cutset	string
+// return	string
 func Rtrim(str, cutset string) string {
 	return strings.TrimRight(str, cutset)
 }
 
 // To split string into an array
-// @Param	str	string
-// @Param	delimiter	string
-// @Return	array of string
+//
+// param	str	string
+// param	delimiter	string
+// return	array of string
 func Split(str, delimiter string) []string {
 	return strings.Split(str, delimiter)
 }
 
 // To squish extra spaces from a string
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Squish(str string) string {
 	reg := regexp.MustCompile(`\s+`)
 	return reg.ReplaceAllString(str, " ")
 }
 
 // To get a substring from a string
-// @Param	str	string
-// @Param	start	int
-// @Param	end	int
-// @Return	string
+//
+// param	str	string
+// param	start	int
+// param	end	int
+// return	string
 func Substr(str string, start, end int) string {
 	return str[start:end]
 }
 
 // To reverse a string
-// @Param	str	string
-// @Return	string
+//
+// param	str	string
+// return	string
 func Reverse(str string) (res string) {
 	for _, v := range str {
 		res = string(v) + res
@@ -608,8 +651,9 @@ func Reverse(str string) (res string) {
 }
 
 // To check whether the given target is palindrome or not
-// @Param	str	string
-// @Return	bool
+//
+// param str string
+// return bool
 func IsPalindrome(str string) bool {
 	ret := true
 	for i := 0; i < len(str)/2; i++ {
@@ -623,8 +667,9 @@ func IsPalindrome(str string) bool {
 }
 
 // Returns the number of words that a string contains
-// @Param	str	string
-// @Return	int
+//
+// param	str	string
+// return	int
 func WordCount(str string) int {
 	var s string = Squish(RemoveSymbolExceptSpace(str))
 	a := Split(s, " ")
@@ -633,8 +678,9 @@ func WordCount(str string) int {
 }
 
 // To returns uppercase the given string
-// @Param	target	string|array
-// @Return	interface
+//
+// param	target	string|array
+// return	interface
 func Upper(target interface{}) interface{} {
 	switch v := target.(type) {
 	case string:
@@ -656,8 +702,9 @@ func Upper(target interface{}) interface{} {
 }
 
 // To returns random alphanumeric characters
-// @Param	length	int
-// @Return	interface
+//
+// param	length	int
+// return	interface
 func Random(length int) string {
 	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	rand.Seed(time.Now().UnixNano())
